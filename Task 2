@@ -1,0 +1,101 @@
+TASK-2: Grocery Store Inventory Management 
+
+inventory = {}
+
+while True:
+   
+ print("\n1. Add item\n2. Update item\n3. Remove item\n4. Display inventory\n5. Exit")
+    choice = input("Enter your choice (1/2/3/4/5): ")
+    #to add the item in the inventory
+    
+if choice == "1":
+        
+item_name = input("Enter item name: ")
+      
+  quantity = int(input("Enter quantity: "))
+       
+ if item_name in inventory:
+          
+  inventory[item_name] += quantity
+        
+else:
+          
+  inventory[item_name] = quantity
+       
+ print(f"{quantity} {item_name}(s) added to inventory.")
+    
+#to update the item in the inventory
+    
+elif choice == "2":
+       
+ item_name = input("Enter item name to update: ")
+       
+ if item_name in inventory:
+           
+ new_quantity = int(input(f"Enter new quantity of {item_name}(s): "))
+          
+  inventory[item_name] = new_quantity
+           
+ print(f"{item_name} quantity updated to {new_quantity}.")
+       
+ #if the item is not present in the inventory
+        
+else:
+          
+  print(f"{item_name} not found in inventory. Use option 1 to add a new item.")
+  
+  #to delete the item in the inventory
+    
+elif choice == "3":
+        
+item_name = input("Enter item name to remove: ")
+      
+  if item_name in inventory:
+           
+ quantity = int(input(f"Enter quantity of {item_name}(s) to remove: "))
+         
+   if inventory[item_name] >= quantity:
+              
+  inventory[item_name] -= quantity
+           
+     if inventory[item_name] == 0:
+               
+     del inventory[item_name]
+           
+     print(f"{quantity} {item_name}(s) removed from inventory.")
+         
+   else:
+              
+  print(f"Not enough {item_name} in inventory.")
+       
+ else:
+           
+ print(f"{item_name} not found in inventory.")
+    
+#to display the current items in  the inventory
+   
+ elif choice == "4":
+       
+ print("\nCurrent Inventory:")
+   
+  for item, quantity in inventory.items():
+           
+ print(f"{item}: {quantity}")
+    
+#to exit from the inventory
+  
+  elif choice == "5":
+       
+ print("Exiting the inventory management system. Goodbye!")
+      
+  break
+    
+#if the choice is invalid 
+    
+else:
+     
+   print("Invalid choice. Please enter a valid option.")
+
+
+
+
